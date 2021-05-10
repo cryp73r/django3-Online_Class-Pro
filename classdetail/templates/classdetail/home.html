@@ -1,0 +1,27 @@
+{% extends 'classdetail/base.html' %}
+{% block content %}
+
+<section>
+    <div class="jumbotron jumbotron-fluid">
+      <div class="container">
+        <h1 class="display-4">Online Class Schedule</h1>
+        <p class="lead">Only for SRMCEM 2<sup>nd</sup> Year CS Students. Now working for CS41, CS42, CS43, CS44 and CS45 Group.</p>
+        <hr class="my-4">
+        <p>*Site Updated for Even Semester.</p>
+        <p>*Now Site Information updates daily according to IST.</p>
+      </div>
+    </div>
+</section>
+<footer class="footer mt-auto py-3">
+  <div class="container" style="text-align: center;">
+    <form action="https://mega.nz/file/HZlAnb4Z#dU1DLXmM5Xr8b8x_9a-FiCK52zHWZ5llJeKrlSKGX-E" target="new" style="display: inline; margin-left: 5px;">
+      {% csrf_token %}
+      <button type="submit" class="btn btn-primary">Download App</button>
+    </form>
+  </div>
+  <div class="container" style="text-align: center; margin-top: 10px;">
+    <span class="text-muted">Crafted with <ion-icon name="heart" class="align-middle" style="color:red;"></ion-icon> by CRYP73R</span>
+  </div>
+</footer>
+
+{% endblock %}

@@ -1,0 +1,78 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel="icon" type="image/png"  href="{% static 'classdetail/favicon.png' %}">
+
+    <script type="text/javascript">
+      function myCopy(id) {
+        var cop = 'Copied'
+    /* Get the text field */
+    var copyText = document.getElementById(id);
+
+    /* Select the text field */
+    copyText.select();
+    copyText.setSelectionRange(0, 99999); /*For mobile devices*/
+
+    /* Copy the text inside the text field */
+    document.execCommand("copy");
+}
+    </script>
+    <title>Online Class Schedule</title>
+    <meta name="title" content="Online Class Schedule">
+    <meta name="description" content="One Destination for all Class Schedule. Now working for CS41, CS42, CS43, CS44 and CS45 Group also.">
+  </head>
+  <body>
+        <!-- Image and text -->
+        <nav class="navbar navbar-light bg-light">
+        <a class="navbar-brand" href="#" style="display: inline;">
+          <span class="align-baseline"><ion-icon name="calendar-outline"></ion-icon> Online Class Schedule</span>
+        </a>
+
+        {% if user.is_authenticated %}
+        <div class="text-right">
+          <b>Logged in as:</b>
+          <i>{{ user.first_name }} {{ user.last_name }}</i>
+
+          <form action="https://mega.nz/file/HZlAnb4Z#dU1DLXmM5Xr8b8x_9a-FiCK52zHWZ5llJeKrlSKGX-E" target="new" style="display: inline; margin-left: 5px;">
+            {% csrf_token %}
+            <button type="submit" class="btn btn-success">Download App</button>
+          </form>
+
+          <form action="{% url 'chnpsw' %}" style="display: inline; margin-left: 5px;">
+            {% csrf_token %}
+            <button type="submit" class="btn btn-dark">Change Password</button>
+          </form>
+
+          <form action="{% url 'logoutusr' %}" method="POST" style="display: inline; margin-left: 5px;">
+              {% csrf_token %}
+              <button type="submit" class="btn btn-danger">Logout</button>
+          </form>
+        </div>
+
+        {% else %}
+        <div class="text-right">
+          <a href="{% url 'signupusr' %}" class="btn btn-info" role="button">Sign Up</a>
+          <a href="{% url 'loginusr' %}" class="btn btn-outline-info" role="button">Login</a>
+        </div>
+
+        {% endif %}
+        </nav>
+      <div class="container">
+          {% block content %}{% endblock %}
+      </div>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/ionicons@5.1.2/dist/ionicons.js"></script>
+  </body>
+</html>

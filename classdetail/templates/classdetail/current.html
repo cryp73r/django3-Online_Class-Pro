@@ -1,0 +1,362 @@
+{% extends 'classdetail/base.html' %}
+{% block content %}
+{% load static %}
+
+{% if c == 0 and d == 0 %}
+<div class="row justify-content-center mt-5">
+    <div class="alert alert-danger" role="alert">
+        No Classes Today.
+    </div>
+</div>
+
+{% else %}
+
+<div class="row justify-content-center mt-5">
+    <div class="alert alert-success" role="alert">
+        Today you have {{ c }} Lecture(s), {{ d }} Tute(s) and {{ e }} Lab(s)
+    </div>
+</div>
+
+      <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+        <li class="nav-item" role="presentation">
+          <a class="nav-link active" id="pills-class1-tab" data-toggle="pill" href="#pills-class1" role="tab" aria-controls="pills-class1" aria-selected="true">09:00 - 10:00</a>
+        </li>
+        <li class="nav-item" role="presentation">
+          <a class="nav-link" id="pills-class2-tab" data-toggle="pill" href="#pills-class2" role="tab" aria-controls="pills-class2" aria-selected="false">10:00 - 11:00</a>
+        </li>
+        <li class="nav-item" role="presentation">
+          <a class="nav-link" id="pills-class3-tab" data-toggle="pill" href="#pills-class3" role="tab" aria-controls="pills-class3" aria-selected="false">11:00 - 12:00</a>
+        </li>
+        <li class="nav-item" role="presentation">
+            <a class="nav-link" id="pills-class4-tab" data-toggle="pill" href="#pills-class4" role="tab" aria-controls="pills-class4" aria-selected="false">12:00 - 12:55</a>
+        </li>
+        <li class="nav-item" role="presentation">
+            <a class="nav-link" id="pills-class5-tab" data-toggle="pill" href="#pills-class5" role="tab" aria-controls="pills-class5" aria-selected="false">12:55 - 01:35</a>
+        </li>
+        <li class="nav-item" role="presentation">
+            <a class="nav-link" id="pills-class6-tab" data-toggle="pill" href="#pills-class6" role="tab" aria-controls="pills-class6" aria-selected="false">01:35 - 02:25</a>
+        </li>
+        <li class="nav-item" role="presentation">
+            <a class="nav-link" id="pills-class7-tab" data-toggle="pill" href="#pills-class7" role="tab" aria-controls="pills-class7" aria-selected="false">02:25 - 03:15</a>
+        </li>
+        <li class="nav-item" role="presentation">
+            <a class="nav-link" id="pills-class8-tab" data-toggle="pill" href="#pills-class8" role="tab" aria-controls="pills-class8" aria-selected="false">03:15 - 04:05</a>
+        </li>
+        <li class="nav-item" role="presentation">
+            <a class="nav-link" id="pills-class9-tab" data-toggle="pill" href="#pills-class9" role="tab" aria-controls="pills-class9" aria-selected="false">04:05 - 04:55</a>
+        </li>
+      </ul>
+      <div class="tab-content" id="pills-tabContent">
+
+        <div class="tab-pane fade show active" id="pills-class1" role="tabpanel" aria-labelledby="pills-class1-tab">
+            {% if ldetail.0.title == 'One Hour Quiz' %}
+            <!-- <span class="font-weight-bold">BREAK 🤩<br></span> -->
+            <p>* If there is <strong>NO Quiz</strong> in Schedule, then there will be <strong>NO Class.</strong></p>
+            <img src="{% static 'classdetail/CS_IT_Even.jpg' %}" class="img-fluid" alt="Quiz Shedule">
+            {% elif ldetail.0|length == 2 %}
+            <h3 class="text-center"><u>Open Electives</u></h3>
+            <span class="font-weight-bold">Subject Name: {{ ldetail.0.0.title }}<br></span>
+            <span class="font-weight-bold">Subject Code:</span> {{ ldetail.0.0.subcode }}<br>
+            <span class="font-weight-bold">Faculty:</span> <span class="font-italic"> {{ ldetail.0.0.subteach }}</span><br><br>
+            <span class="font-weight-bold">URL:</span> <a href = {{ ldetail.0.0.url }} target="new">{{ ldetail.0.0.url }}</a><br><br>
+            <span class="font-weight-bold">Meeting ID:</span> <input type="text" readonly value="{{ ldetail.0.0.meetid }}" id="class1">
+            <a href="#" onclick="myCopy('class1')"><ion-icon name="copy"></ion-icon></a><br><br>
+            <span class="font-weight-bold">Password:</span> <input type="text" readonly value="{{ ldetail.0.0.password }}" id="class1p">
+            <a href="#" onclick="myCopy('class1p')"><ion-icon name="copy"></ion-icon></a><br>
+            <br><br>
+            <span class="font-weight-bold">Subject Name: {{ ldetail.0.1.title }}<br></span>
+            <span class="font-weight-bold">Subject Code:</span> {{ ldetail.0.1.subcode }}<br>
+            <span class="font-weight-bold">Faculty:</span> <span class="font-italic"> {{ ldetail.0.1.subteach }}</span><br><br>
+            <span class="font-weight-bold">URL:</span> <a href = {{ ldetail.0.1.url }} target="new">{{ ldetail.0.1.url }}</a><br><br>
+            <span class="font-weight-bold">Meeting ID:</span> <input type="text" readonly value="{{ ldetail.0.1.meetid }}" id="class1">
+            <a href="#" onclick="myCopy('class1')"><ion-icon name="copy"></ion-icon></a><br><br>
+            <span class="font-weight-bold">Password:</span> <input type="text" readonly value="{{ ldetail.0.1.password }}" id="class1p">
+            <a href="#" onclick="myCopy('class1p')"><ion-icon name="copy"></ion-icon></a><br>
+            {% else %}
+            <span class="font-weight-bold">Subject Name: {{ ldetail.0.title }}<br></span>
+            <span class="font-weight-bold">Subject Code:</span> {{ ldetail.0.subcode }}<br>
+            <span class="font-weight-bold">Faculty:</span> <span class="font-italic"> {{ ldetail.0.subteach }}</span><br><br>
+            <span class="font-weight-bold">URL:</span> <a href = {{ ldetail.0.url }} target="new">{{ ldetail.0.url }}</a><br><br>
+            <span class="font-weight-bold">Meeting ID:</span> <input type="text" readonly value="{{ ldetail.0.meetid }}" id="class1">
+            <a href="#" onclick="myCopy('class1')"><ion-icon name="copy"></ion-icon></a><br><br>
+            <span class="font-weight-bold">Password:</span> <input type="text" readonly value="{{ ldetail.0.password }}" id="class1p">
+            <a href="#" onclick="myCopy('class1p')"><ion-icon name="copy"></ion-icon></a><br>
+            {% endif %}
+        </div>
+
+        <div class="tab-pane fade" id="pills-class2" role="tabpanel" aria-labelledby="pills-class2-tab">
+            {% if ldetail.1 == 'BREAK' %}
+            <span class="font-weight-bold">BREAK 🤩<br></span>
+            {% elif ldetail.1|length == 2 %}
+            <h3 class="text-center"><u>Open Electives</u></h3>
+            <span class="font-weight-bold">Subject Name: {{ ldetail.1.0.title }}<br></span>
+            <span class="font-weight-bold">Subject Code:</span> {{ ldetail.1.0.subcode }}<br>
+            <span class="font-weight-bold">Faculty:</span> <span class="font-italic"> {{ ldetail.1.0.subteach }}</span><br><br>
+            <span class="font-weight-bold">URL:</span> <a href = {{ ldetail.1.0.url }} target="new">{{ ldetail.1.0.url }}</a><br><br>
+            <span class="font-weight-bold">Meeting ID:</span> <input type="text" readonly value="{{ ldetail.1.0.meetid }}" id="class2">
+            <a href="#" onclick="myCopy('class2')"><ion-icon name="copy"></ion-icon></a><br><br>
+            <span class="font-weight-bold">Password:</span> <input type="text" readonly value="{{ ldetail.1.0.password }}" id="class2p">
+            <a href="#" onclick="myCopy('class2p')"><ion-icon name="copy"></ion-icon></a><br>
+            <br><br>
+            <span class="font-weight-bold">Subject Name: {{ ldetail.1.1.title }}<br></span>
+            <span class="font-weight-bold">Subject Code:</span> {{ ldetail.1.1.subcode }}<br>
+            <span class="font-weight-bold">Faculty:</span> <span class="font-italic"> {{ ldetail.1.1.subteach }}</span><br><br>
+            <span class="font-weight-bold">URL:</span> <a href = {{ ldetail.1.1.url }} target="new">{{ ldetail.1.1.url }}</a><br><br>
+            <span class="font-weight-bold">Meeting ID:</span> <input type="text" readonly value="{{ ldetail.1.1.meetid }}" id="class2">
+            <a href="#" onclick="myCopy('class2')"><ion-icon name="copy"></ion-icon></a><br><br>
+            <span class="font-weight-bold">Password:</span> <input type="text" readonly value="{{ ldetail.1.1.password }}" id="class2p">
+            <a href="#" onclick="myCopy('class2p')"><ion-icon name="copy"></ion-icon></a><br>
+            {% else %}
+            <span class="font-weight-bold">Subject Name: {{ ldetail.1.title }}<br></span>
+            <span class="font-weight-bold">Subject Code:</span> {{ ldetail.1.subcode }}<br>
+            <span class="font-weight-bold">Faculty:</span> <span class="font-italic"> {{ ldetail.1.subteach }}</span><br><br>
+            <span class="font-weight-bold">URL:</span> <a href = {{ ldetail.1.url }} target="new">{{ ldetail.1.url }}</a><br><br>
+            <span class="font-weight-bold">Meeting ID:</span> <input type="text" readonly value="{{ ldetail.1.meetid }}" id="class2">
+            <a href="#" onclick="myCopy('class2')"><ion-icon name="copy"></ion-icon></a><br><br>
+            <span class="font-weight-bold">Password:</span> <input type="text" readonly value="{{ ldetail.1.password }}" id="class2p">
+            <a href="#" onclick="myCopy('class2p')"><ion-icon name="copy"></ion-icon></a><br>
+            {% endif %}
+        </div>
+
+        <div class="tab-pane fade" id="pills-class3" role="tabpanel" aria-labelledby="pills-class3-tab">
+            {% if ldetail.2 == 'BREAK' %}
+            <span class="font-weight-bold">BREAK 🤩<br></span>
+            {% elif ldetail.2|length == 2 %}
+            <h3 class="text-center"><u>Open Electives</u></h3>
+            <span class="font-weight-bold">Subject Name: {{ ldetail.2.0.title }}<br></span>
+            <span class="font-weight-bold">Subject Code:</span> {{ ldetail.2.0.subcode }}<br>
+            <span class="font-weight-bold">Faculty:</span> <span class="font-italic"> {{ ldetail.2.0.subteach }}</span><br><br>
+            <span class="font-weight-bold">URL:</span> <a href = {{ ldetail.2.0.url }} target="new">{{ ldetail.2.0.url }}</a><br><br>
+            <span class="font-weight-bold">Meeting ID:</span> <input type="text" readonly value="{{ ldetail.2.0.meetid }}" id="class3">
+            <a href="#" onclick="myCopy('class3')"><ion-icon name="copy"></ion-icon></a><br><br>
+            <span class="font-weight-bold">Password:</span> <input type="text" readonly value="{{ ldetail.2.0.password }}" id="class3p">
+            <a href="#" onclick="myCopy('class3p')"><ion-icon name="copy"></ion-icon></a><br>
+            <br><br>
+            <span class="font-weight-bold">Subject Name: {{ ldetail.2.1.title }}<br></span>
+            <span class="font-weight-bold">Subject Code:</span> {{ ldetail.2.1.subcode }}<br>
+            <span class="font-weight-bold">Faculty:</span> <span class="font-italic"> {{ ldetail.2.1.subteach }}</span><br><br>
+            <span class="font-weight-bold">URL:</span> <a href = {{ ldetail.2.1.url }} target="new">{{ ldetail.2.1.url }}</a><br><br>
+            <span class="font-weight-bold">Meeting ID:</span> <input type="text" readonly value="{{ ldetail.2.1.meetid }}" id="class3">
+            <a href="#" onclick="myCopy('class3')"><ion-icon name="copy"></ion-icon></a><br><br>
+            <span class="font-weight-bold">Password:</span> <input type="text" readonly value="{{ ldetail.2.1.password }}" id="class3p">
+            <a href="#" onclick="myCopy('class3p')"><ion-icon name="copy"></ion-icon></a><br>
+            {% else %}
+            <span class="font-weight-bold">Subject Name: {{ ldetail.2.title }}<br></span>
+            <span class="font-weight-bold">Subject Code:</span> {{ ldetail.2.subcode }}<br>
+            <span class="font-weight-bold">Faculty:</span> <span class="font-italic"> {{ ldetail.2.subteach }}</span><br><br>
+            <span class="font-weight-bold">URL:</span> <a href = {{ ldetail.2.url }} target="new">{{ ldetail.2.url }}</a><br><br>
+            <span class="font-weight-bold">Meeting ID:</span> <input type="text" readonly value="{{ ldetail.2.meetid }}" id="class3">
+            <a href="#" onclick="myCopy('class3')"><ion-icon name="copy"></ion-icon></a><br><br>
+            <span class="font-weight-bold">Password:</span> <input type="text" readonly value="{{ ldetail.2.password }}" id="class3p">
+            <a href="#" onclick="myCopy('class3p')"><ion-icon name="copy"></ion-icon></a><br>
+            {% endif %}
+        </div>
+
+        <div class="tab-pane fade" id="pills-class4" role="tabpanel" aria-labelledby="pills-class4-tab">
+            {% if ldetail.3 == 'BREAK' %}
+            <span class="font-weight-bold">BREAK 🤩<br></span>
+            {% elif ldetail.3|length == 2 %}
+            <h3 class="text-center"><u>Open Electives</u></h3>
+            <span class="font-weight-bold">Subject Name: {{ ldetail.3.0.title }}<br></span>
+            <span class="font-weight-bold">Subject Code:</span> {{ ldetail.3.0.subcode }}<br>
+            <span class="font-weight-bold">Faculty:</span> <span class="font-italic"> {{ ldetail.3.0.subteach }}</span><br><br>
+            <span class="font-weight-bold">URL:</span> <a href = {{ ldetail.3.0.url }} target="new">{{ ldetail.3.0.url }}</a><br><br>
+            <span class="font-weight-bold">Meeting ID:</span> <input type="text" readonly value="{{ ldetail.3.0.meetid }}" id="class4">
+            <a href="#" onclick="myCopy('class4')"><ion-icon name="copy"></ion-icon></a><br><br>
+            <span class="font-weight-bold">Password:</span> <input type="text" readonly value="{{ ldetail.3.0.password }}" id="class4p">
+            <a href="#" onclick="myCopy('class4p')"><ion-icon name="copy"></ion-icon></a><br>
+            <br><br>
+            <span class="font-weight-bold">Subject Name: {{ ldetail.3.1.title }}<br></span>
+            <span class="font-weight-bold">Subject Code:</span> {{ ldetail.3.1.subcode }}<br>
+            <span class="font-weight-bold">Faculty:</span> <span class="font-italic"> {{ ldetail.3.1.subteach }}</span><br><br>
+            <span class="font-weight-bold">URL:</span> <a href = {{ ldetail.3.1.url }} target="new">{{ ldetail.3.1.url }}</a><br><br>
+            <span class="font-weight-bold">Meeting ID:</span> <input type="text" readonly value="{{ ldetail.3.1.meetid }}" id="class4">
+            <a href="#" onclick="myCopy('class4')"><ion-icon name="copy"></ion-icon></a><br><br>
+            <span class="font-weight-bold">Password:</span> <input type="text" readonly value="{{ ldetail.3.1.password }}" id="class4p">
+            <a href="#" onclick="myCopy('class4p')"><ion-icon name="copy"></ion-icon></a><br>
+            {% else %}
+            <span class="font-weight-bold">Subject Name: {{ ldetail.3.title }}<br></span>
+            <span class="font-weight-bold">Subject Code:</span> {{ ldetail.3.subcode }}<br>
+            <span class="font-weight-bold">Faculty:</span> <span class="font-italic"> {{ ldetail.3.subteach }}</span><br><br>
+            <span class="font-weight-bold">URL:</span> <a href = {{ ldetail.3.url }} target="new">{{ ldetail.3.url }}</a><br><br>
+            <span class="font-weight-bold">Meeting ID:</span> <input type="text" readonly value="{{ ldetail.3.meetid }}" id="class4">
+            <a href="#" onclick="myCopy('class4')"><ion-icon name="copy"></ion-icon></a><br><br>
+            <span class="font-weight-bold">Password:</span> <input type="text" readonly value="{{ ldetail.3.password }}" id="class4p">
+            <a href="#" onclick="myCopy('class4p')"><ion-icon name="copy"></ion-icon></a><br>
+            {% endif %}
+        </div>
+
+        <div class="tab-pane fade" id="pills-class5" role="tabpanel" aria-labelledby="pills-class5-tab">
+            {% if ldetail.4 == 'BREAK' %}
+            <span class="font-weight-bold">LUNCH 🍗</span>
+            {% elif ldetail.4|length == 2 %}
+            <h3 class="text-center"><u>Open Electives</u></h3>
+            <span class="font-weight-bold">Subject Name: {{ ldetail.4.0.title }}<br></span>
+            <span class="font-weight-bold">Subject Code:</span> {{ ldetail.4.0.subcode }}<br>
+            <span class="font-weight-bold">Faculty:</span> <span class="font-italic"> {{ ldetail.4.0.subteach }}</span><br><br>
+            <span class="font-weight-bold">URL:</span> <a href = {{ ldetail.4.0.url }} target="new">{{ ldetail.4.0.url }}</a><br><br>
+            <span class="font-weight-bold">Meeting ID:</span> <input type="text" readonly value="{{ ldetail.4.0.meetid }}" id="class5">
+            <a href="#" onclick="myCopy('class5')"><ion-icon name="copy"></ion-icon></a><br><br>
+            <span class="font-weight-bold">Password:</span> <input type="text" readonly value="{{ ldetail.4.0.password }}" id="class5p">
+            <a href="#" onclick="myCopy('class5p')"><ion-icon name="copy"></ion-icon></a><br>
+            <br><br>
+            <span class="font-weight-bold">Subject Name: {{ ldetail.4.1.title }}<br></span>
+            <span class="font-weight-bold">Subject Code:</span> {{ ldetail.4.1.subcode }}<br>
+            <span class="font-weight-bold">Faculty:</span> <span class="font-italic"> {{ ldetail.4.1.subteach }}</span><br><br>
+            <span class="font-weight-bold">URL:</span> <a href = {{ ldetail.4.1.url }} target="new">{{ ldetail.4.1.url }}</a><br><br>
+            <span class="font-weight-bold">Meeting ID:</span> <input type="text" readonly value="{{ ldetail.4.1.meetid }}" id="class5">
+            <a href="#" onclick="myCopy('class5')"><ion-icon name="copy"></ion-icon></a><br><br>
+            <span class="font-weight-bold">Password:</span> <input type="text" readonly value="{{ ldetail.4.1.password }}" id="class5p">
+            <a href="#" onclick="myCopy('class5p')"><ion-icon name="copy"></ion-icon></a><br>
+            {% else %}
+            <span class="font-weight-bold">Subject Name: {{ ldetail.4.title }}<br></span>
+            <span class="font-weight-bold">Subject Code:</span> {{ ldetail.4.subcode }}<br>
+            <span class="font-weight-bold">Faculty:</span> <span class="font-italic"> {{ ldetail.4.subteach }}</span><br><br>
+            <span class="font-weight-bold">URL:</span> <a href = {{ ldetail.4.url }} target="new">{{ ldetail.4.url }}</a><br><br>
+            <span class="font-weight-bold">Meeting ID:</span> <input type="text" readonly value="{{ ldetail.4.meetid }}" id="class5">
+            <a href="#" onclick="myCopy('class5')"><ion-icon name="copy"></ion-icon></a><br><br>
+            <span class="font-weight-bold">Password:</span> <input type="text" readonly value="{{ ldetail.4.password }}" id="class5p">
+            <a href="#" onclick="myCopy('class5p')"><ion-icon name="copy"></ion-icon></a><br>
+            {% endif %}
+        </div>
+
+        <div class="tab-pane fade" id="pills-class6" role="tabpanel" aria-labelledby="pills-class6-tab">
+            {% if ldetail.5 == 'BREAK' %}
+            <span class="font-weight-bold">BREAK 🤩<br></span>
+            {% elif ldetail.5|length == 2 %}
+            <h3 class="text-center"><u>Open Electives</u></h3>
+            <span class="font-weight-bold">Subject Name: {{ ldetail.5.0.title }}<br></span>
+            <span class="font-weight-bold">Subject Code:</span> {{ ldetail.5.0.subcode }}<br>
+            <span class="font-weight-bold">Faculty:</span> <span class="font-italic"> {{ ldetail.5.0.subteach }}</span><br><br>
+            <span class="font-weight-bold">URL:</span> <a href = {{ ldetail.5.0.url }} target="new">{{ ldetail.5.0.url }}</a><br><br>
+            <span class="font-weight-bold">Meeting ID:</span> <input type="text" readonly value="{{ ldetail.5.0.meetid }}" id="class6">
+            <a href="#" onclick="myCopy('class6')"><ion-icon name="copy"></ion-icon></a><br><br>
+            <span class="font-weight-bold">Password:</span> <input type="text" readonly value="{{ ldetail.5.0.password }}" id="class6p">
+            <a href="#" onclick="myCopy('class6p')"><ion-icon name="copy"></ion-icon></a><br>
+            <br><br>
+            <span class="font-weight-bold">Subject Name: {{ ldetail.5.1.title }}<br></span>
+            <span class="font-weight-bold">Subject Code:</span> {{ ldetail.5.1.subcode }}<br>
+            <span class="font-weight-bold">Faculty:</span> <span class="font-italic"> {{ ldetail.5.1.subteach }}</span><br><br>
+            <span class="font-weight-bold">URL:</span> <a href = {{ ldetail.5.1.url }} target="new">{{ ldetail.5.1.url }}</a><br><br>
+            <span class="font-weight-bold">Meeting ID:</span> <input type="text" readonly value="{{ ldetail.5.1.meetid }}" id="class6">
+            <a href="#" onclick="myCopy('class6')"><ion-icon name="copy"></ion-icon></a><br><br>
+            <span class="font-weight-bold">Password:</span> <input type="text" readonly value="{{ ldetail.5.1.password }}" id="class6p">
+            <a href="#" onclick="myCopy('class6p')"><ion-icon name="copy"></ion-icon></a><br>
+            {% else %}
+            <span class="font-weight-bold">Subject Name: {{ ldetail.5.title }}<br></span>
+            <span class="font-weight-bold">Subject Code:</span> {{ ldetail.5.subcode }}<br>
+            <span class="font-weight-bold">Faculty:</span> <span class="font-italic"> {{ ldetail.5.subteach }}</span><br><br>
+            <span class="font-weight-bold">URL:</span> <a href = {{ ldetail.5.url }} target="new">{{ ldetail.5.url }}</a><br><br>
+            <span class="font-weight-bold">Meeting ID:</span> <input type="text" readonly value="{{ ldetail.5.meetid }}" id="class6">
+            <a href="#" onclick="myCopy('class6')"><ion-icon name="copy"></ion-icon></a><br><br>
+            <span class="font-weight-bold">Password:</span> <input type="text" readonly value="{{ ldetail.5.password }}" id="class6p">
+            <a href="#" onclick="myCopy('class6p')"><ion-icon name="copy"></ion-icon></a><br>
+            {% endif %}
+        </div>
+
+        <div class="tab-pane fade" id="pills-class7" role="tabpanel" aria-labelledby="pills-class7-tab">
+            {% if ldetail.6 == 'BREAK' %}
+            <span class="font-weight-bold">BREAK 🤩<br></span>
+            {% elif ldetail.6|length == 2 %}
+            <h3 class="text-center"><u>Open Electives</u></h3>
+            <span class="font-weight-bold">Subject Name: {{ ldetail.6.0.title }}<br></span>
+            <span class="font-weight-bold">Subject Code:</span> {{ ldetail.6.0.subcode }}<br>
+            <span class="font-weight-bold">Faculty:</span> <span class="font-italic"> {{ ldetail.6.0.subteach }}</span><br><br>
+            <span class="font-weight-bold">URL:</span> <a href = {{ ldetail.6.0.url }} target="new">{{ ldetail.6.0.url }}</a><br><br>
+            <span class="font-weight-bold">Meeting ID:</span> <input type="text" readonly value="{{ ldetail.6.0.meetid }}" id="class7">
+            <a href="#" onclick="myCopy('class7')"><ion-icon name="copy"></ion-icon></a><br><br>
+            <span class="font-weight-bold">Password:</span> <input type="text" readonly value="{{ ldetail.6.0.password }}" id="class7p">
+            <a href="#" onclick="myCopy('class7p')"><ion-icon name="copy"></ion-icon></a><br>
+            <br><br>
+            <span class="font-weight-bold">Subject Name: {{ ldetail.6.1.title }}<br></span>
+            <span class="font-weight-bold">Subject Code:</span> {{ ldetail.6.1.subcode }}<br>
+            <span class="font-weight-bold">Faculty:</span> <span class="font-italic"> {{ ldetail.6.1.subteach }}</span><br><br>
+            <span class="font-weight-bold">URL:</span> <a href = {{ ldetail.6.1.url }} target="new">{{ ldetail.6.1.url }}</a><br><br>
+            <span class="font-weight-bold">Meeting ID:</span> <input type="text" readonly value="{{ ldetail.6.1.meetid }}" id="class7">
+            <a href="#" onclick="myCopy('class7')"><ion-icon name="copy"></ion-icon></a><br><br>
+            <span class="font-weight-bold">Password:</span> <input type="text" readonly value="{{ ldetail.6.1.password }}" id="class7p">
+            <a href="#" onclick="myCopy('class7p')"><ion-icon name="copy"></ion-icon></a><br>
+            {% else %}
+            <span class="font-weight-bold">Subject Name: {{ ldetail.6.title }}<br></span>
+            <span class="font-weight-bold">Subject Code:</span> {{ ldetail.6.subcode }}<br>
+            <span class="font-weight-bold">Faculty:</span> <span class="font-italic"> {{ ldetail.6.subteach }}</span><br><br>
+            <span class="font-weight-bold">URL:</span> <a href = {{ ldetail.6.url }} target="new">{{ ldetail.6.url }}</a><br><br>
+            <span class="font-weight-bold">Meeting ID:</span> <input type="text" readonly value="{{ ldetail.6.meetid }}" id="class7">
+            <a href="#" onclick="myCopy('class7')"><ion-icon name="copy"></ion-icon></a><br><br>
+            <span class="font-weight-bold">Password:</span> <input type="text" readonly value="{{ ldetail.6.password }}" id="class7p">
+            <a href="#" onclick="myCopy('class7p')"><ion-icon name="copy"></ion-icon></a><br>
+            {% endif %}
+        </div>
+
+        <div class="tab-pane fade" id="pills-class8" role="tabpanel" aria-labelledby="pills-class8-tab">
+            {% if ldetail.7 == 'BREAK' %}
+            <span class="font-weight-bold">BREAK 🤩<br></span>
+            {% elif ldetail.7|length == 2 %}
+            <h3 class="text-center"><u>Open Electives</u></h3>
+            <span class="font-weight-bold">Subject Name: {{ ldetail.7.0.title }}<br></span>
+            <span class="font-weight-bold">Subject Code:</span> {{ ldetail.7.0.subcode }}<br>
+            <span class="font-weight-bold">Faculty:</span> <span class="font-italic"> {{ ldetail.7.0.subteach }}</span><br><br>
+            <span class="font-weight-bold">URL:</span> <a href = {{ ldetail.7.0.url }} target="new">{{ ldetail.7.0.url }}</a><br><br>
+            <span class="font-weight-bold">Meeting ID:</span> <input type="text" readonly value="{{ ldetail.7.0.meetid }}" id="class8">
+            <a href="#" onclick="myCopy('class8')"><ion-icon name="copy"></ion-icon></a><br><br>
+            <span class="font-weight-bold">Password:</span> <input type="text" readonly value="{{ ldetail.7.0.password }}" id="class8p">
+            <a href="#" onclick="myCopy('class8p')"><ion-icon name="copy"></ion-icon></a><br>
+            <br><br>
+            <span class="font-weight-bold">Subject Name: {{ ldetail.7.1.title }}<br></span>
+            <span class="font-weight-bold">Subject Code:</span> {{ ldetail.7.1.subcode }}<br>
+            <span class="font-weight-bold">Faculty:</span> <span class="font-italic"> {{ ldetail.7.1.subteach }}</span><br><br>
+            <span class="font-weight-bold">URL:</span> <a href = {{ ldetail.7.1.url }} target="new">{{ ldetail.7.1.url }}</a><br><br>
+            <span class="font-weight-bold">Meeting ID:</span> <input type="text" readonly value="{{ ldetail.7.1.meetid }}" id="class8">
+            <a href="#" onclick="myCopy('class8')"><ion-icon name="copy"></ion-icon></a><br><br>
+            <span class="font-weight-bold">Password:</span> <input type="text" readonly value="{{ ldetail.7.1.password }}" id="class8p">
+            <a href="#" onclick="myCopy('class8p')"><ion-icon name="copy"></ion-icon></a><br>
+            {% else %}
+            <span class="font-weight-bold">Subject Name: {{ ldetail.7.title }}<br></span>
+            <span class="font-weight-bold">Subject Code:</span> {{ ldetail.7.subcode }}<br>
+            <span class="font-weight-bold">Faculty:</span> <span class="font-italic"> {{ ldetail.7.subteach }}</span><br><br>
+            <span class="font-weight-bold">URL:</span> <a href = {{ ldetail.7.url }} target="new">{{ ldetail.7.url }}</a><br><br>
+            <span class="font-weight-bold">Meeting ID:</span> <input type="text" readonly value="{{ ldetail.7.meetid }}" id="class8">
+            <a href="#" onclick="myCopy('class8')"><ion-icon name="copy"></ion-icon></a><br><br>
+            <span class="font-weight-bold">Password:</span> <input type="text" readonly value="{{ ldetail.7.password }}" id="class8p">
+            <a href="#" onclick="myCopy('class8p')"><ion-icon name="copy"></ion-icon></a><br>
+            {% endif %}
+        </div>
+
+        <div class="tab-pane fade" id="pills-class9" role="tabpanel" aria-labelledby="pills-class9-tab">
+            {% if ldetail.8 == 'BREAK' %}
+            <span class="font-weight-bold">BREAK 🤩<br></span>
+            {% elif ldetail.8|length == 2 %}
+            <h3 class="text-center"><u>Open Electives</u></h3>
+            <span class="font-weight-bold">Subject Name: {{ ldetail.8.0.title }}<br></span>
+            <span class="font-weight-bold">Subject Code:</span> {{ ldetail.8.0.subcode }}<br>
+            <span class="font-weight-bold">Faculty:</span> <span class="font-italic"> {{ ldetail.8.0.subteach }}</span><br><br>
+            <span class="font-weight-bold">URL:</span> <a href = {{ ldetail.8.0.url }} target="new">{{ ldetail.8.0.url }}</a><br><br>
+            <span class="font-weight-bold">Meeting ID:</span> <input type="text" readonly value="{{ ldetail.8.0.meetid }}" id="class9">
+            <a href="#" onclick="myCopy('class9')"><ion-icon name="copy"></ion-icon></a><br><br>
+            <span class="font-weight-bold">Password:</span> <input type="text" readonly value="{{ ldetail.8.0.password }}" id="class9p">
+            <a href="#" onclick="myCopy('class9p')"><ion-icon name="copy"></ion-icon></a><br>
+            <br><br>
+            <span class="font-weight-bold">Subject Name: {{ ldetail.8.1.title }}<br></span>
+            <span class="font-weight-bold">Subject Code:</span> {{ ldetail.8.1.subcode }}<br>
+            <span class="font-weight-bold">Faculty:</span> <span class="font-italic"> {{ ldetail.8.1.subteach }}</span><br><br>
+            <span class="font-weight-bold">URL:</span> <a href = {{ ldetail.8.1.url }} target="new">{{ ldetail.8.1.url }}</a><br><br>
+            <span class="font-weight-bold">Meeting ID:</span> <input type="text" readonly value="{{ ldetail.8.1.meetid }}" id="class9">
+            <a href="#" onclick="myCopy('class9')"><ion-icon name="copy"></ion-icon></a><br><br>
+            <span class="font-weight-bold">Password:</span> <input type="text" readonly value="{{ ldetail.8.1.password }}" id="class9p">
+            <a href="#" onclick="myCopy('class9p')"><ion-icon name="copy"></ion-icon></a><br>
+            {% else %}
+            <span class="font-weight-bold">Subject Name: {{ ldetail.8.title }}<br></span>
+            <span class="font-weight-bold">Subject Code:</span> {{ ldetail.8.subcode }}<br>
+            <span class="font-weight-bold">Faculty:</span> <span class="font-italic"> {{ ldetail.8.subteach }}</span><br><br>
+            <span class="font-weight-bold">URL:</span> <a href = {{ ldetail.8.url }} target="new">{{ ldetail.8.url }}</a><br><br>
+            <span class="font-weight-bold">Meeting ID:</span> <input type="text" readonly value="{{ ldetail.8.meetid }}" id="class9">
+            <a href="#" onclick="myCopy('class9')"><ion-icon name="copy"></ion-icon></a><br><br>
+            <span class="font-weight-bold">Password:</span> <input type="text" readonly value="{{ ldetail.8.password }}" id="class9p">
+            <a href="#" onclick="myCopy('class9p')"><ion-icon name="copy"></ion-icon></a><br>
+            {% endif %}
+        </div>
+
+      </div>
+
+{% endif %}
+{% endblock %}
