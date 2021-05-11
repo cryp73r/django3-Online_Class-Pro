@@ -555,5 +555,4 @@ def apiCallCS(odd, wday):
                 'tute': d,
                 'lab': e
             }
-    with open('classdetail/templates/classdetail/json/classdetails/raw_data_cs.json', 'w') as outfile:
-        json.dump(raw_json, outfile)
+    return raw_json

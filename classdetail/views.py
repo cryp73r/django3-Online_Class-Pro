@@ -302,16 +302,13 @@ def apiv1CS(request):
     odd = False
     IST = pytz.timezone('Asia/Kolkata')
     wday = datetime.datetime.now(IST).weekday()
-    apiCallCS(odd, wday)
-    return render(request, 'classdetail/json/classdetails/raw_data_cs.json')
+    return render(request, 'classdetail/raw_data_cs.html', {'raw_dataCS': apiCallCS(odd, wday)})
 
 def apiv1IT(request):
     odd = False
     IST = pytz.timezone('Asia/Kolkata')
     wday = datetime.datetime.now(IST).weekday()
-    apiCallIT(odd, wday)
-    return render(request, 'classdetail/json/classdetails/raw_data_it.json')
+    return render(request, 'classdetail/raw_data_it.html', {'raw_dataIT': apiCallIT(odd, wday)})
 
 def apiv1Ver(request):
-    apiCallVer()
-    return render(request, 'classdetail/json/classdetails/raw_data_ver.json')
+    return render(request, 'classdetail/raw_data_ver.html', {'raw_dataVer': apiCallVer()})
