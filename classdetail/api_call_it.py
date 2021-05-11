@@ -484,4 +484,5 @@ def apiCallIT(odd, wday):
                 'tute': d,
                 'lab': e
             }
+    raw_json = json.dumps(raw_json)
     return raw_json
