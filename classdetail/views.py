@@ -1,6 +1,8 @@
+from django.http.response import HttpResponse
 from django.shortcuts import render, redirect
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from .name import name
+from django.http import JsonResponse
 from django.contrib.auth.models import User
 from django.db import IntegrityError
 from django.contrib.auth import login, authenticate, logout
@@ -302,13 +304,13 @@ def apiv1CS(request):
     odd = False
     IST = pytz.timezone('Asia/Kolkata')
     wday = datetime.datetime.now(IST).weekday()
-    return render(request, 'classdetail/raw_data_cs.html', {'raw_dataCS': apiCallCS(odd, wday)}, content_type='application/json')
+    return HttpResponse(apiCallCS(odd, wday), content_type='application/json')
 
 def apiv1IT(request):
     odd = False
     IST = pytz.timezone('Asia/Kolkata')
     wday = datetime.datetime.now(IST).weekday()
-    return render(request, 'classdetail/raw_data_it.html', {'raw_dataIT': apiCallIT(odd, wday)})
+    return HttpResponse(apiCallIT(odd, wday), content_type='application/json')
 
 def apiv1Ver(request):
-    return render(request, 'classdetail/raw_data_ver.html', {'raw_dataVer': apiCallVer()})
+    return HttpResponse(apiCallVer(), content_type='application/json')
