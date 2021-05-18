@@ -20,6 +20,8 @@ from .api_call_ver import apiCallVer
 
 # Create your views here.
 
+session_username = ""
+
 def home(request):
     if request.user.is_authenticated:
         return redirect('currentusr')
@@ -40,6 +42,8 @@ def signupusr(request):
                     user.save()
                     # Login User after Signup
                     login(request, user)
+                    global session_username
+                    session_username = request.POST['username']
                     return redirect('currentusr')
                 except IntegrityError:
                     # Username Taken
@@ -57,6 +61,8 @@ def loginusr(request):
             return render(request, 'classdetail/login.html', {'form':AuthenticationForm(), 'error':'Invalid Username or Password'})
         else:
             login(request, user)
+            global session_username
+            session_username = request.POST['username']
             return redirect('currentusr')
 
 @login_required
@@ -74,16 +80,16 @@ def chnpsw(request):
             return render(request, 'classdetail/signup.html', {'form':UserCreationForm(), 'error':'Required Password 8 characters long.'})
         else:
             if request.POST['password1'] == request.POST['password2']:
-                usr = User.objects.get(username=request.POST['username'])
-                usr.set_password(request.POST['password1'])
-                if  usr.is_authenticated:   # Fixes Vulneribility
+                if  session_username==request.POST['username']:   # Fixes Vulneribility
+                    usr = User.objects.get(username=request.POST['username'])
+                    usr.set_password(request.POST['password1'])
                     usr.save()
                     # Login again after Change
                     login(request, usr)
                     return redirect('currentusr')
                 else:
                     # Vulneribility
-                    return render(request, 'classdetail/chnpsw.html', {'form':UserCreationForm(), 'error':'Vulneribility Error'})
+                    return render(request, 'classdetail/chnpsw.html', {'form':UserCreationForm(), 'error':'Vulnerability Error'})
             else:
                 # Passwords Missmatch
                 return render(request, 'classdetail/chnpsw.html', {'form':UserCreationForm(), 'error':'Passwords didn\'t matched.'})
@@ -92,6 +98,8 @@ def chnpsw(request):
 def currentusr(request):
     IST = pytz.timezone('Asia/Kolkata')
     wday = datetime.datetime.now(IST).weekday()
+    global session_username
+    session_username = request.user.username
     branch = verify(request.user.username)[0]
     t_table = []
     if branch=='10':
