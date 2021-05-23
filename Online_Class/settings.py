@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'classdetail',
     'notice',
+    'appRelease',
 ]
 
 MIDDLEWARE = [
@@ -121,6 +122,9 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATIC_ROOT = BASE_DIR / 'static'
+
+MEDIA_URL = '/app/'
+MEDIA_ROOT = BASE_DIR / 'appRelease'
 
 LOGIN_URL = '/login/'
 

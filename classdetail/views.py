@@ -1,8 +1,8 @@
+from appRelease.models import AppRelease
 from django.http.response import HttpResponse
 from django.shortcuts import render, redirect
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from .name import name
-from django.http import JsonResponse
 from django.contrib.auth.models import User
 from django.db import IntegrityError
 from django.contrib.auth import login, authenticate, logout
@@ -12,21 +12,22 @@ from .verify import verify
 from .verifyCS import verifyCS
 from .verifyIT import verifyIT
 from .models import classdetailcs3334, classdetailcs3132, classdetailcs4142, classdetailcs4344, classdetailcs45, classdetailit4142, classdetailit4344
+from appRelease.models import AppRelease
 from .groupCS import groupCS
 from .groupIT import groupIT
 from .api_call_cs import apiCallCS
 from .api_call_it import apiCallIT
-from .api_call_ver import apiCallVer
 
 # Create your views here.
 
 session_username = ""
 
 def home(request):
+    appData = AppRelease.objects.all().order_by('-releaseDate')[0]
     if request.user.is_authenticated:
         return redirect('currentusr')
     else:
-        return render(request, 'classdetail/home.html')
+        return render(request, 'classdetail/home.html', {'appData': appData})
 
 def signupusr(request):
     if request.method == 'GET':
@@ -73,11 +74,12 @@ def logoutusr(request):
 
 @login_required
 def chnpsw(request):
+    appData = AppRelease.objects.all().order_by('-releaseDate')[0]
     if request.method == 'GET':
-        return render(request, 'classdetail/chnpsw.html', {'form':UserCreationForm()})
+        return render(request, 'classdetail/chnpsw.html', {'form':UserCreationForm(), 'appData':appData})
     else:
         if len(request.POST['password1']) <= 7:
-            return render(request, 'classdetail/signup.html', {'form':UserCreationForm(), 'error':'Required Password 8 characters long.'})
+            return render(request, 'classdetail/signup.html', {'form':UserCreationForm(), 'error':'Required Password 8 characters long.', 'appData':appData})
         else:
             if request.POST['password1'] == request.POST['password2']:
                 if  session_username==request.POST['username']:   # Fixes Vulneribility
@@ -89,10 +91,10 @@ def chnpsw(request):
                     return redirect('currentusr')
                 else:
                     # Vulneribility
-                    return render(request, 'classdetail/chnpsw.html', {'form':UserCreationForm(), 'error':'Vulnerability Error'})
+                    return render(request, 'classdetail/chnpsw.html', {'form':UserCreationForm(), 'error':'Vulnerability Error', 'appData':appData})
             else:
                 # Passwords Missmatch
-                return render(request, 'classdetail/chnpsw.html', {'form':UserCreationForm(), 'error':'Passwords didn\'t matched.'})
+                return render(request, 'classdetail/chnpsw.html', {'form':UserCreationForm(), 'error':'Passwords didn\'t matched.', 'appData':appData})
 
 @login_required
 def currentusr(request):
@@ -305,8 +307,8 @@ def currentusr(request):
                     else:
                         ldetail.append('BREAK')
     e = len(temp_list)
-
-    return render(request, 'classdetail/current.html', {'ldetail':ldetail, 'c':c, 'd':d, 'e':e})
+    appData = AppRelease.objects.all().order_by('-releaseDate')[0]
+    return render(request, 'classdetail/current.html', {'ldetail':ldetail, 'c':c, 'd':d, 'e':e, 'appData':appData})
 
 def apiv1CS(request):
     odd = False
@@ -319,6 +321,3 @@ def apiv1IT(request):
     IST = pytz.timezone('Asia/Kolkata')
     wday = datetime.datetime.now(IST).weekday()
     return HttpResponse(apiCallIT(odd, wday), content_type='application/json')
-
-def apiv1Ver(request):
-    return HttpResponse(apiCallVer(), content_type='application/json')

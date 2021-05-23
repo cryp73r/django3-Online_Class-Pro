@@ -14,7 +14,7 @@
 </section>
 <footer class="footer mt-auto py-3">
   <div class="container" style="text-align: center;">
-    <form action="https://mega.nz/file/bYlFEY5T#d3eaxfQ4_PCMTHmPu0qOC84xjgCYiuvrqnBFRhIMSlc" target="new" style="display: inline; margin-left: 5px;">
+    <form action="{{ appData.appFile.url }}" target="new" style="display: inline; margin-left: 5px;">
       {% csrf_token %}
       <button type="submit" class="btn btn-primary">Download App</button>
     </form>

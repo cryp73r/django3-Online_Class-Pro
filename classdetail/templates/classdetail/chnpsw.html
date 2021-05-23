@@ -1,4 +1,12 @@
 {% extends 'classdetail/base.html' %}
+
+{% block navigate %}
+    <form action="{{ appData.appFile.url }}" target="new" style="display: inline; margin-left: 5px;">
+        {% csrf_token %}
+        <button type="submit" class="btn btn-success">Download App</button>
+    </form>
+{% endblock %}
+
 {% block content %}
 
 <div class="row justify-content-center mt-5">
