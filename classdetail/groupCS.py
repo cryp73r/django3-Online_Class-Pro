@@ -16,18 +16,27 @@ def groupCS(username):
         branchlis = []
         branchlis.append(branchtup[0])
         branchlis.append(int(branchtup[1]))
-        if (branchlis[0]=='10' and len(username)==13):
-            if (branchlis[1]>=58 and branchlis[1]<=86):
-                return '3'
-            elif (branchlis[1]>=87 and branchlis[1]<=117):
-                return '4'
-            elif (branchlis[1]>=1 and branchlis[1]<=28):
-                return '1'
-            elif (branchlis[1]>=29 and branchlis[1]<=57):
-                return '2'
-            elif (branchlis[1]>=118 and branchlis[1]<=145):
-                return '5'
+        if username.startswith('2001220'):
+            if (branchlis[0]=='10' and len(username)==13):
+                if (branchlis[1]>=1 and branchlis[1]<=11):
+                    return '5'
+                else:
+                    return None
             else:
                 return None
         else:
-            return None
+            if (branchlis[0]=='10' and len(username)==13):
+                if (branchlis[1]>=58 and branchlis[1]<=86):
+                    return '3'
+                elif (branchlis[1]>=87 and branchlis[1]<=117):
+                    return '4'
+                elif (branchlis[1]>=1 and branchlis[1]<=28):
+                    return '1'
+                elif (branchlis[1]>=29 and branchlis[1]<=57):
+                    return '2'
+                elif (branchlis[1]>=118 and branchlis[1]<=133):
+                    return '5'
+                else:
+                    return None
+            else:
+                return None

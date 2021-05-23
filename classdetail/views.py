@@ -326,6 +326,6 @@ def apiv1Ver(request):
     raw_json = {
         "ver": "v2.5.6",
         "size": "18.3MB",
-        "url": "https://mega.nz/file/HU12VJAQ#gc7V0S8RLcAXMK6kdAyDGYJMvSTOu2YmZm6DENEzYmw"
+        "url": "https://mega.nz/file/eUcG0LZR#7eLY4WMSO2fRlohwtUs1FMoYGp6gWF_3JfgOTzX8PH4"
     }
     return HttpResponse(json.dumps(raw_json), content_type='application/json')
