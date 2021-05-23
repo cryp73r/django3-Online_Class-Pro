@@ -1,4 +1,3 @@
-from django.shortcuts import render
 from django.http.response import HttpResponse
 from .api_call_ver import apiCallVer
 

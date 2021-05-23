@@ -35,6 +35,7 @@ urlpatterns = [
     # API
     path('apiv1-no-security-key-required/', views.apiv1CS, name='apiv1CS'),
     path('apiv1-it-no-security-key-required/', views.apiv1IT, name='apiv1IT'),
+    path('apiv1-ver-no-security-key-required/', views.apiv1Ver, name='apiv1IT'),
 
     # API Notice
     path('notice/', include('notice.urls')),

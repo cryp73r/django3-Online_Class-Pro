@@ -12,11 +12,11 @@ from .verify import verify
 from .verifyCS import verifyCS
 from .verifyIT import verifyIT
 from .models import classdetailcs3334, classdetailcs3132, classdetailcs4142, classdetailcs4344, classdetailcs45, classdetailit4142, classdetailit4344
-from appRelease.models import AppRelease
 from .groupCS import groupCS
 from .groupIT import groupIT
 from .api_call_cs import apiCallCS
 from .api_call_it import apiCallIT
+import json
 
 # Create your views here.
 
@@ -321,3 +321,11 @@ def apiv1IT(request):
     IST = pytz.timezone('Asia/Kolkata')
     wday = datetime.datetime.now(IST).weekday()
     return HttpResponse(apiCallIT(odd, wday), content_type='application/json')
+
+def apiv1Ver(request):
+    raw_json = {
+        "ver": "v2.5.6",
+        "size": "18.3MB",
+        "url": "https://mega.nz/file/HU12VJAQ#gc7V0S8RLcAXMK6kdAyDGYJMvSTOu2YmZm6DENEzYmw"
+    }
+    return HttpResponse(json.dumps(raw_json), content_type='application/json')
