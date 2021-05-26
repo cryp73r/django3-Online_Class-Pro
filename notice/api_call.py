@@ -3,7 +3,7 @@ from .models import Notice
 
 def apiCall():
     raw_json = {"data": []}
-    noticeData = Notice.objects.all().order_by('-date')
+    noticeData = Notice.objects.all().order_by('-id')
     for element in noticeData:
         raw_json["data"].append({
             "department": element.department,
