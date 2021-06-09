@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'classdetail',
     'notice',
     'appRelease',
+    'quizExam',
 ]
 
 MIDDLEWARE = [
