@@ -13,12 +13,14 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
+from quizExam.views import QuizSchedule
 from django.contrib import admin
 from django.urls import path, include, re_path
 from django.conf.urls.static import static
 from django.conf import settings
 from django.views.static import serve
 from classdetail import views
+# import quizExam
 
 urlpatterns = [
     path('', views.home, name='home'),
@@ -43,6 +45,8 @@ urlpatterns = [
 
     #API AppRelease
     path('app/', include('appRelease.urls')),
+
+    # path('quiz/', quizExam.views.QuizSchedule, name='QuizSchedule'),
 
     re_path(r'^app/(?P<path>.*)$', serve,{'document_root': settings.MEDIA_ROOT}),
     re_path(r'^static/(?P<path>.*)$', serve,{'document_root': settings.STATIC_ROOT}),

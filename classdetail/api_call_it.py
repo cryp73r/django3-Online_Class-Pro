@@ -242,11 +242,15 @@ def apiCallIT(odd, wday):
                             if clad not in temp_list:
                                 temp_list.append(clad)
                     elif (clad == '100'):
+                        from quizExam.models import Quiz
+                        import  datetime, pytz
+                        IST = pytz.timezone('Asia/Kolkata')
+                        QuizData = Quiz.objects.filter(Department='Information Technology').get(Date=datetime.datetime.now(IST).strftime("%Y-%m-%d"))
                         raw_json['groupC']['detail'].append({
-                            'name': "One Hour Quiz",
-                            'code': "",
+                            'name': QuizData.Subject,
+                            'code': QuizData.SubCode,
                             'teach': "",
-                            'url': "",
+                            'url': QuizData.Url,
                             'id': "",
                             'pwd': "",
                             'timeS': timeS[i],
@@ -308,11 +312,15 @@ def apiCallIT(odd, wday):
                             if clad not in temp_list:
                                 temp_list.append(clad)
                     elif (clad == '100'):
+                        from quizExam.models import Quiz
+                        import  datetime, pytz
+                        IST = pytz.timezone('Asia/Kolkata')
+                        QuizData = Quiz.objects.filter(Department='Information Technology').get(Date=datetime.datetime.now(IST).strftime("%Y-%m-%d"))
                         raw_json['groupD']['detail'].append({
-                            'name': "One Hour Quiz",
-                            'code': "",
+                            'name': QuizData.Subject,
+                            'code': QuizData.SubCode,
                             'teach': "",
-                            'url': "",
+                            'url': QuizData.Url,
                             'id': "",
                             'pwd': "",
                             'timeS': timeS[i],
@@ -373,11 +381,15 @@ def apiCallIT(odd, wday):
                             if clad not in temp_list:
                                 temp_list.append(clad)
                     elif (clad == '100'):
+                        from quizExam.models import Quiz
+                        import  datetime, pytz
+                        IST = pytz.timezone('Asia/Kolkata')
+                        QuizData = Quiz.objects.filter(Department='Information Technology').get(Date=datetime.datetime.now(IST).strftime("%Y-%m-%d"))
                         raw_json['groupA']['detail'].append({
-                            'name': "One Hour Quiz",
-                            'code': "",
+                            'name': QuizData.Subject,
+                            'code': QuizData.SubCode,
                             'teach': "",
-                            'url': "",
+                            'url': QuizData.Url,
                             'id': "",
                             'pwd': "",
                             'timeS': timeS[i],
@@ -438,11 +450,15 @@ def apiCallIT(odd, wday):
                             if clad not in temp_list:
                                 temp_list.append(clad)
                     elif (clad == '100'):
+                        from quizExam.models import Quiz
+                        import  datetime, pytz
+                        IST = pytz.timezone('Asia/Kolkata')
+                        QuizData = Quiz.objects.filter(Department='Information Technology').get(Date=datetime.datetime.now(IST).strftime("%Y-%m-%d"))
                         raw_json['groupB']['detail'].append({
-                            'name': "One Hour Quiz",
-                            'code': "",
+                            'name': QuizData.Subject,
+                            'code': QuizData.SubCode,
                             'teach': "",
-                            'url': "",
+                            'url': QuizData.Url,
                             'id': "",
                             'pwd': "",
                             'timeS': timeS[i],

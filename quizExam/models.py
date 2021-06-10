@@ -12,6 +12,7 @@ class Quiz(models.Model):
     Department = models.CharField(max_length=30, choices=DEPARTMENT_CHOICE)
     Date = models.DateField()
     Url = models.URLField(blank=True)
+    objects = models.Manager()
 
     def __str__(self):
         return self.Subject + ' ' + self.Department
