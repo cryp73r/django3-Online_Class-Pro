@@ -112,7 +112,7 @@ def verifyIT(username, wday):
                 t_table = ['2', '1', '10', '4', ' ', '5', '12', '21', '21']
                 return t_table
             elif wday == 2:
-                t_table = ['3', '8', '6', '5', ' ', ' ', ' ', ' ', ' ']
+                t_table = ['100', '8', '6', '5', ' ', ' ', ' ', ' ', ' ']
                 return t_table
             elif wday == 3:
                 t_table = ['1', '3', ' ', ' ', ' ', '9', '12', '20', '20']
@@ -135,7 +135,7 @@ def verifyIT(username, wday):
                 t_table = ['2', '1', '14', '4', ' ', '5', '18', ' ', ' ']
                 return t_table
             elif wday == 2:
-                t_table = ['3', '16', '6', '5', ' ', '23', '23', '25', '25']
+                t_table = ['100', '16', '6', '5', ' ', '23', '23', '25', '25']
                 return t_table
             elif wday == 3:
                 t_table = ['1', '3', '24', '24', ' ', '17', '18', ' ', ' ']
@@ -158,7 +158,7 @@ def verifyIT(username, wday):
                 t_table = ['1', '3', '2', '5', ' ', '10', '12', '22', '22']
                 return t_table
             elif wday == 2:
-                t_table = ['1', '2', '6', '4', ' ', ' ', ' ', ' ', ' ']
+                t_table = ['100', '2', '6', '4', ' ', ' ', ' ', ' ', ' ']
                 return t_table
             elif wday == 3:
                 t_table = ['3', '2', '1', '5', ' ', ' ', '12', ' ', ' ']
@@ -181,7 +181,7 @@ def verifyIT(username, wday):
                 t_table = ['1', '3', '2', '5', ' ', ' ', '18', ' ', ' ']
                 return t_table
             elif wday == 2:
-                t_table = ['1', '2', '6', '4', ' ', '17', ' ', ' ', ' ']
+                t_table = ['100', '2', '6', '4', ' ', '17', ' ', ' ', ' ']
                 return t_table
             elif wday == 3:
                 t_table = ['3', '2', '15', '5', ' ', '16', '18', '24', '24']

@@ -60,7 +60,11 @@
             {% if ldetail.0.title == 'One Hour Quiz' %}
             <!-- <span class="font-weight-bold">BREAK 🤩<br></span> -->
             <p>* If there is <strong>NO Quiz</strong> in Schedule, then there will be <strong>NO Class.</strong></p>
+            {% if branch == '10' %}
             <img src="{% static 'classdetail/CS_Even.jpg' %}" class="img-fluid" alt="Quiz Shedule">
+            {% else %}
+            <img src="{% static 'classdetail/IT_Even.jpg' %}" class="img-fluid" alt="Quiz Shedule">
+            {% endif %}
             {% elif ldetail.0|length == 2 %}
             <h3 class="text-center"><u>Open Electives</u></h3>
             <span class="font-weight-bold">Subject Name: {{ ldetail.0.0.title }}<br></span>
