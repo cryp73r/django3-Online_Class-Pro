@@ -106,22 +106,28 @@ def verifyCS(username, wday):
     else:
         if grou == '3':
             if wday == 0:
-                t_table = ['100', '1', '6', '5', ' ', '22', '22', '9', ' ']
+                # t_table = ['100', '1', '6', '5', ' ', '22', '22', '9', ' ']
+                t_table = ['100']
                 return t_table
             elif wday == 1:
-                t_table = ['1', '2', '3', '4', ' ', '5', '12', '20', '20']
+                # t_table = ['1', '2', '3', '4', ' ', '5', '12', '20', '20']
+                t_table = ['100']
                 return t_table
             elif wday == 2:
-                t_table = ['100', '3', '6', '5', ' ', ' ', ' ', ' ', ' ']
+                # t_table = ['100', '3', '6', '5', ' ', ' ', ' ', ' ', ' ']
+                t_table = ['100']
                 return t_table
             elif wday == 3:
-                t_table = ['2', '1', '4', '3', ' ', ' ', '12', ' ', ' ']
+                # t_table = ['2', '1', '4', '3', ' ', ' ', '12', ' ', ' ']
+                t_table = ['100']
                 return t_table
             elif wday == 4:
-                t_table = ['100', '3', '6', '8', ' ', '11', '10', '21', '21']
+                # t_table = ['100', '3', '6', '8', ' ', '11', '10', '21', '21']
+                t_table = ['100']
                 return t_table
             elif wday == 5:
-                t_table = [' ']
+                # t_table = [' ']
+                t_table = ['100']
                 return t_table
             elif wday == 6:
                 t_table = [' ']
@@ -129,22 +135,28 @@ def verifyCS(username, wday):
 
         elif grou == '4':
             if wday == 0:
-                t_table = ['100', '1', '6', '5', ' ', '23', '23', '14', ' ']
+                # t_table = ['100', '1', '6', '5', ' ', '23', '23', '14', ' ']
+                t_table = ['100']
                 return t_table
             elif wday == 1:
-                t_table = ['1', '2', '3', '4', ' ', '5', '18', '15', ' ']
+                # t_table = ['1', '2', '3', '4', ' ', '5', '18', '15', ' ']
+                t_table = ['100']
                 return t_table
             elif wday == 2:
-                t_table = ['100', '3', '6', '5', ' ', '25', '25', '24', '24']
+                # t_table = ['100', '3', '6', '5', ' ', '25', '25', '24', '24']
+                t_table = ['100']
                 return t_table
             elif wday == 3:
-                t_table = ['2', '1', '4', '3', ' ', '17', '18', ' ', ' ']
+                # t_table = ['2', '1', '4', '3', ' ', '17', '18', ' ', ' ']
+                t_table = ['100']
                 return t_table
             elif wday == 4:
-                t_table = ['100', '3', '6', '16', ' ', ' ', ' ', ' ', ' ']
+                # t_table = ['100', '3', '6', '16', ' ', ' ', ' ', ' ', ' ']
+                t_table = ['100']
                 return t_table
             elif wday == 5:
-                t_table = [' ']
+                # t_table = [' ']
+                t_table = ['100']
                 return t_table
             elif wday == 6:
                 t_table = [' ']
@@ -152,22 +164,28 @@ def verifyCS(username, wday):
 
         elif grou == '5':
             if wday == 0:
-                t_table = ['100', '2', '6', '3', ' ', '1', '5', ' ', ' ']
+                # t_table = ['100', '2', '6', '3', ' ', '1', '5', ' ', ' ']
+                t_table = ['100']
                 return t_table
             elif wday == 1:
-                t_table = ['3', '1', '5', '2', ' ', '4', '12', ' ', ' ']
+                # t_table = ['3', '1', '5', '2', ' ', '4', '12', ' ', ' ']
+                t_table = ['100']
                 return t_table
             elif wday == 2:
-                t_table = ['100', '4', '6', '1', ' ', ' ', '11', '14', '14']
+                # t_table = ['100', '4', '6', '1', ' ', ' ', '11', '14', '14']
+                t_table = ['100']
                 return t_table
             elif wday == 3:
-                t_table = ['15', '15', '5', '10', ' ', '8', '12', '9', ' ']
+                # t_table = ['15', '15', '5', '10', ' ', '8', '12', '9', ' ']
+                t_table = ['100']
                 return t_table
             elif wday == 4:
-                t_table = ['100', '3', '6', '2', ' ', '16', '16', ' ', ' ']
+                # t_table = ['100', '3', '6', '2', ' ', '16', '16', ' ', ' ']
+                t_table = ['100']
                 return t_table
             elif wday == 5:
-                t_table = [' ']
+                # t_table = [' ']
+                t_table = ['100']
                 return t_table
             elif wday == 6:
                 t_table = [' ']
@@ -175,22 +193,28 @@ def verifyCS(username, wday):
 
         elif grou == '1':
             if wday == 0:
-                t_table = ['100', '1', '6', '3', ' ', '11', '9', '22', '22']
+                # t_table = ['100', '1', '6', '3', ' ', '11', '9', '22', '22']
+                t_table = ['100']
                 return t_table
             elif wday == 1:
-                t_table = ['2', '3', '4', '5', ' ', '10', '12', '21', '21']
+                # t_table = ['2', '3', '4', '5', ' ', '10', '12', '21', '21']
+                t_table = ['100']
                 return t_table
             elif wday == 2:
-                t_table = ['100', '2', '6', '3', ' ', ' ', ' ', ' ', ' ']
+                # t_table = ['100', '2', '6', '3', ' ', ' ', ' ', ' ', ' ']
+                t_table = ['100']
                 return t_table
             elif wday == 3:
-                t_table = ['1', '4', '3', '5', ' ', '8', '12', '20', '20']
+                # t_table = ['1', '4', '3', '5', ' ', '8', '12', '20', '20']
+                t_table = ['100']
                 return t_table
             elif wday == 4:
-                t_table = ['100', '2', '6', '5', ' ', ' ', ' ', ' ', ' ']
+                # t_table = ['100', '2', '6', '5', ' ', ' ', ' ', ' ', ' ']
+                t_table = ['100']
                 return t_table
             elif wday == 5:
-                t_table = [' ']
+                # t_table = [' ']
+                t_table = ['100']
                 return t_table
             elif wday == 6:
                 t_table = [' ']
@@ -198,22 +222,28 @@ def verifyCS(username, wday):
 
         elif grou == '2':
             if wday == 0:
-                t_table = ['100', '1', '6', '3', ' ', '24', '24', ' ', ' ']
+                # t_table = ['100', '1', '6', '3', ' ', '24', '24', ' ', ' ']
+                t_table = ['100']
                 return t_table
             elif wday == 1:
-                t_table = ['2', '3', '4', '5', ' ', '15', '18', '25', '25']
+                # t_table = ['2', '3', '4', '5', ' ', '15', '18', '25', '25']
+                t_table = ['100']
                 return t_table
             elif wday == 2:
-                t_table = ['100', '2', '6', '3', ' ', '17', '16', ' ', ' ']
+                # t_table = ['100', '2', '6', '3', ' ', '17', '16', ' ', ' ']
+                t_table = ['100']
                 return t_table
             elif wday == 3:
-                t_table = ['1', '4', '3', '5', ' ', ' ', '18', '17', ' ']
+                # t_table = ['1', '4', '3', '5', ' ', ' ', '18', '17', ' ']
+                t_table = ['100']
                 return t_table
             elif wday == 4:
-                t_table = ['100', '2', '6', '5', ' ', '23', '23', ' ', ' ']
+                # t_table = ['100', '2', '6', '5', ' ', '23', '23', ' ', ' ']
+                t_table = ['100']
                 return t_table
             elif wday == 5:
-                t_table = [' ']
+                # t_table = [' ']
+                t_table = ['100']
                 return t_table
             elif wday == 6:
                 t_table = [' ']

@@ -106,22 +106,28 @@ def verifyIT(username, wday):
     else:
         if grou == '3':
             if wday == 0:
-                t_table = ['100', '1', '6', '5', ' ', '22', '22', '2', ' ']
+                # t_table = ['100', '1', '6', '5', ' ', '22', '22', '2', ' ']
+                t_table = ['100']
                 return t_table
             elif wday == 1:
-                t_table = ['2', '1', '10', '4', ' ', '5', '12', '21', '21']
+                # t_table = ['2', '1', '10', '4', ' ', '5', '12', '21', '21']
+                t_table = ['100']
                 return t_table
             elif wday == 2:
-                t_table = ['100', '8', '6', '5', ' ', ' ', ' ', ' ', ' ']
+                # t_table = ['100', '8', '6', '5', ' ', ' ', ' ', ' ', ' ']
+                t_table = ['100']
                 return t_table
             elif wday == 3:
-                t_table = ['1', '3', ' ', ' ', ' ', '9', '12', '20', '20']
+                # t_table = ['1', '3', ' ', ' ', ' ', '9', '12', '20', '20']
+                t_table = ['100']
                 return t_table
             elif wday == 4:
-                t_table = ['100', '3', '6', '2', ' ', '11', '4', ' ', ' ']
+                # t_table = ['100', '3', '6', '2', ' ', '11', '4', ' ', ' ']
+                t_table = ['100']
                 return t_table
             elif wday == 5:
-                t_table = [' ']
+                # t_table = [' ']
+                t_table = ['100']
                 return t_table
             elif wday == 6:
                 t_table = [' ']
@@ -129,22 +135,28 @@ def verifyIT(username, wday):
 
         elif grou == '4':
             if wday == 0:
-                t_table = ['100', '1', '6', '5', ' ', ' ', ' ', '2', ' ']
+                # t_table = ['100', '1', '6', '5', ' ', ' ', ' ', '2', ' ']
+                t_table = ['100']
                 return t_table
             elif wday == 1:
-                t_table = ['2', '1', '14', '4', ' ', '5', '18', ' ', ' ']
+                # t_table = ['2', '1', '14', '4', ' ', '5', '18', ' ', ' ']
+                t_table = ['100']
                 return t_table
             elif wday == 2:
-                t_table = ['100', '16', '6', '5', ' ', '23', '23', '25', '25']
+                # t_table = ['100', '16', '6', '5', ' ', '23', '23', '25', '25']
+                t_table = ['100']
                 return t_table
             elif wday == 3:
-                t_table = ['1', '3', '24', '24', ' ', '17', '18', ' ', ' ']
+                # t_table = ['1', '3', '24', '24', ' ', '17', '18', ' ', ' ']
+                t_table = ['100']
                 return t_table
             elif wday == 4:
-                t_table = ['100', '3', '6', '2', ' ', '15', '4', ' ', ' ']
+                # t_table = ['100', '3', '6', '2', ' ', '15', '4', ' ', ' ']
+                t_table = ['100']
                 return t_table
             elif wday == 5:
-                t_table = [' ']
+                # t_table = [' ']
+                t_table = ['100']
                 return t_table
             elif wday == 6:
                 t_table = [' ']
@@ -152,22 +164,28 @@ def verifyIT(username, wday):
 
         elif grou == '1':
             if wday == 0:
-                t_table = ['100', '3', '6', '4', ' ', '11', '9', '20', '20']
+                # t_table = ['100', '3', '6', '4', ' ', '11', '9', '20', '20']
+                t_table = ['100']
                 return t_table
             elif wday == 1:
-                t_table = ['1', '3', '2', '5', ' ', '10', '12', '22', '22']
+                # t_table = ['1', '3', '2', '5', ' ', '10', '12', '22', '22']
+                t_table = ['100']
                 return t_table
             elif wday == 2:
-                t_table = ['100', '2', '6', '4', ' ', ' ', ' ', ' ', ' ']
+                # t_table = ['100', '2', '6', '4', ' ', ' ', ' ', ' ', ' ']
+                t_table = ['100']
                 return t_table
             elif wday == 3:
-                t_table = ['3', '2', '1', '5', ' ', ' ', '12', ' ', ' ']
+                # t_table = ['3', '2', '1', '5', ' ', ' ', '12', ' ', ' ']
+                t_table = ['100']
                 return t_table
             elif wday == 4:
-                t_table = ['100', '1', '6', '5', ' ', '21', '21', ' ', ' ']
+                # t_table = ['100', '1', '6', '5', ' ', '21', '21', ' ', ' ']
+                t_table = ['100']
                 return t_table
             elif wday == 5:
-                t_table = [' ']
+                # t_table = [' ']
+                t_table = ['100']
                 return t_table
             elif wday == 6:
                 t_table = [' ']
@@ -175,22 +193,28 @@ def verifyIT(username, wday):
 
         elif grou == '2':
             if wday == 0:
-                t_table = ['100', '3', '6', '4', ' ', '14', ' ', ' ', ' ']
+                # t_table = ['100', '3', '6', '4', ' ', '14', ' ', ' ', ' ']
+                t_table = ['100']
                 return t_table
             elif wday == 1:
-                t_table = ['1', '3', '2', '5', ' ', ' ', '18', ' ', ' ']
+                # t_table = ['1', '3', '2', '5', ' ', ' ', '18', ' ', ' ']
+                t_table = ['100']
                 return t_table
             elif wday == 2:
-                t_table = ['100', '2', '6', '4', ' ', '17', ' ', ' ', ' ']
+                # t_table = ['100', '2', '6', '4', ' ', '17', ' ', ' ', ' ']
+                t_table = ['100']
                 return t_table
             elif wday == 3:
-                t_table = ['3', '2', '15', '5', ' ', '16', '18', '24', '24']
+                # t_table = ['3', '2', '15', '5', ' ', '16', '18', '24', '24']
+                t_table = ['100']
                 return t_table
             elif wday == 4:
-                t_table = ['100', '1', '6', '5', ' ', '25', '25', '23', '23']
+                # t_table = ['100', '1', '6', '5', ' ', '25', '25', '23', '23']
+                t_table = ['100']
                 return t_table
             elif wday == 5:
-                t_table = [' ']
+                # t_table = [' ']
+                t_table = ['100']
                 return t_table
             elif wday == 6:
                 t_table = [' ']

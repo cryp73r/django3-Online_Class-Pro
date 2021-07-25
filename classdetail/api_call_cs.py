@@ -18,8 +18,10 @@ def apiCallCS(odd, wday):
         groupB = classdetailcs4344
     raw_json = {'groupA': {'count': {}, 'detail': []}, 'groupB': {'count': {}, 'detail': []}, 'groupC': {'count': {}, 'detail': []}, 'groupD': {'count': {}, 'detail': []}, 'groupE': {'count': {}, 'detail': []}}
     username = ['1', '2', '3', '4', '5']
-    timeS = ["09:00", "10:00", "11:00", "12:00", "12:55", "01:35", "02:25", "03:15", "04:05"]
-    timeE = ["10:00", "11:00", "12:00", "12:55", "01:35", "02:25", "03:15", "04:05", "04:55"]
+    # timeS = ["09:00", "10:00", "11:00", "12:00", "12:55", "01:35", "02:25", "03:15", "04:05"]
+    # timeE = ["10:00", "11:00", "12:00", "12:55", "01:35", "02:25", "03:15", "04:05", "04:55"]
+    timeS = ["10:00"]
+    timeE = ["12:00"]
     for user in username:
         t_table = verifyCS(user, wday)
         c = 0   # lectures counter
