@@ -308,7 +308,7 @@ def currentusr(request):
                         ldetail.append('BREAK')
     e = len(temp_list)
     appData = AppRelease.objects.all().order_by('-releaseDate')[0]
-    return render(request, 'classdetail/current.html', {'ldetail':ldetail, 'c':c, 'd':d, 'e':e, 'branch':branch, 'appData':appData})
+    return render(request, 'classdetail/current.html', {'ldetail':ldetail, 'c':c, 'd':d, 'e':e, 'q':1, 'branch':branch, 'appData':appData})
 
 def apiv1CS(request):
     odd = False
